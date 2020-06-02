@@ -1,0 +1,12 @@
+{
+    "name": "smolevich/fedresurs-sdk",
+    "license": "MIT",
+    "require": {
+        "php": "^7.2",
+        "php-http/client-common": "^2.1",
+        "php-http/discovery": "^1.7",
+        "php-http/guzzle6-adapter": "^2.0",
+        "php-http/message-factory": "^1.0",
+        "phpro/soap-client": "^1.1"
+    }
+}
