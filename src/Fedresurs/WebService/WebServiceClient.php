@@ -46,7 +46,7 @@ class WebServiceClient extends \Phpro\SoapClient\Client
      * @return ResultInterface|Type\GetTradeMessagesResponse
      * @throws SoapException
      */
-    public function getTradeMessages(\Fedresurs\WebService\Type\GetTradeMessages $parameters) : \Fedresurs\WebService\Type\GetTradeMessagesResponse
+    public function getTradeMessages(\Fedresurs\WebService\Type\GetTradeMessages $parameters) : Type\ArrayOfTradePlace
     {
         return $this->call('GetTradeMessages', $parameters);
     }

@@ -2,7 +2,9 @@
 
 namespace Fedresurs\WebService\Type;
 
-class ArrayOfTradePlace
+use Phpro\SoapClient\Type\ResultInterface;
+
+class ArrayOfTradePlace implements ResultInterface
 {
 
     /**
@@ -32,4 +34,3 @@ class ArrayOfTradePlace
 
 
 }
-

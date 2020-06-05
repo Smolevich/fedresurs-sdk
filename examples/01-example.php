@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Fedresurs\WebService\Type\GetDebtorsByLastPublicationPeriod;
+use Fedresurs\WebService\Type\GetTradeMessages;
 use Http\Adapter\Guzzle6\Client;
 use Phpro\SoapClient\Soap\Handler\HttPlugHandle;
 use Fedresurs\WebService\WebServiceClientFactory;
@@ -21,11 +22,13 @@ $handler = HttPlugHandle::createForClient(
 );
 
 $client = WebServiceClientFactory::factory(__DIR__ . '/../schema/schema.wsdl', $handler);
-$startDate = new DateTime('-5 day');
+$startDate = new DateTime('-10 day');
 $endDate = new DateTime('now');
 $response = $client->getDebtorsByLastPublicationPeriod(new GetDebtorsByLastPublicationPeriod($startDate,$endDate));
 $companies = $response->getDebtorList()->getDebtorCompany();
 
+
+# Get companies
 /**
  * @var \Fedresurs\WebService\Type\DebtorCompany $company
  */
@@ -35,4 +38,36 @@ foreach ($companies as $company) {
         $company->getINN(),
         $company->getBankruptId()
     ).PHP_EOL;
+}
+
+# Get trades
+$response = $client->getTradeMessages(new GetTradeMessages($startDate,  $endDate));
+$tradePlaces = $response->getTradePlace();
+
+/**
+ * @var \Fedresurs\WebService\Type\TradePlace $tradePlace
+ */
+foreach ($tradePlaces as $tradePlace) {
+    echo sprintf('Trade name %s, site %s', $tradePlace->getName(), $tradePlace->getSite()).PHP_EOL;
+    $trades = $tradePlace->getTradeList()->getTrade();
+    /**
+     * @var \Fedresurs\WebService\Type\Trade $trade
+     */
+    foreach ($trades as $trade) {
+        $messageList = $trade->getMessageList()->getTradeMessage();
+
+        echo  sprintf("\tTrade id %s, ID_EFRSB %s",
+            $trade->getID_External(),
+            $trade->getID_EFRSB()
+        ).PHP_EOL;
+
+        /** @var \Fedresurs\WebService\Type\TradeMessage $message */
+        foreach ($messageList as $message) {
+            echo sprintf("\t\tMessage id %s for trade id %s",
+                $message->getID(),
+                $trade->getID_EFRSB()
+            ).PHP_EOL;
+        }
+    }
+
 }
