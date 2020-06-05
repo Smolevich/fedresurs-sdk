@@ -30,9 +30,9 @@ $companies = $response->getDebtorList()->getDebtorCompany();
  * @var \Fedresurs\WebService\Type\DebtorCompany $company
  */
 foreach ($companies as $company) {
-    var_dump($company->getBankruptId());
-    echo sprintf('Company full_name %s, bankruptId %s',
+    echo sprintf('Company full_name %s, INN %s, bankruptId %s',
         $company->getFullName(),
+        $company->getINN(),
         $company->getBankruptId()
     ).PHP_EOL;
 }
