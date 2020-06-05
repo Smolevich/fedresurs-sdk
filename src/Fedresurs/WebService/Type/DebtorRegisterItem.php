@@ -8,47 +8,47 @@ class DebtorRegisterItem
     /**
      * @var \DateTimeInterface
      */
-    private $LastMessageDate;
+    protected $LastMessageDate;
 
     /**
      * @var \DateTimeInterface
      */
-    private $LastReportDate;
+    protected $LastReportDate;
 
     /**
      * @var \Fedresurs\WebService\Type\ArrayOfLegalCaseInfo
      */
-    private $LegalCaseList;
+    protected $LegalCaseList;
 
     /**
      * @var string
      */
-    private $Category;
+    protected $Category;
 
     /**
      * @var string
      */
-    private $CategoryCode;
+    protected $CategoryCode;
 
     /**
      * @var string
      */
-    private $Region;
+    protected $Region;
 
     /**
      * @var \DateTimeInterface
      */
-    private $DateLastModif;
+    protected $DateLastModif;
 
     /**
      * @var string
      */
-    private $INN;
+    protected $INN;
 
     /**
      * @var int
      */
-    private $BankruptId;
+    protected $BankruptId;
 
     /**
      * @return \DateTimeInterface
@@ -232,4 +232,3 @@ class DebtorRegisterItem
 
 
 }
-
