@@ -7,21 +7,19 @@ use Fedresurs\WebService\WebServiceClassmap;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Phpro\SoapClient\Soap\Driver\ExtSoap\ExtSoapEngineFactory;
 use Phpro\SoapClient\Soap\Driver\ExtSoap\ExtSoapOptions;
+use Phpro\SoapClient\Soap\Handler\HandlerInterface;
 
 class WebServiceClientFactory
 {
-
-    public static function factory(string $wsdl) : \Fedresurs\WebService\WebServiceClient
+    public static function factory(string $wsdl, HandlerInterface $handler) : WebServiceClient
     {
-        $engine = ExtSoapEngineFactory::fromOptions(
+        $engine = ExtSoapEngineFactory::fromOptionsWithHandler(
             ExtSoapOptions::defaults($wsdl, [])
-                ->withClassMap(WebServiceClassmap::getCollection())
+                ->withClassMap(WebServiceClassmap::getCollection()),
+            $handler
         );
         $eventDispatcher = new EventDispatcher();
 
         return new WebServiceClient($engine, $eventDispatcher);
     }
-
-
 }
-

@@ -2,13 +2,25 @@
 
 namespace Fedresurs\WebService\Type;
 
-class GetMessageContentResponse
+
+use Phpro\SoapClient\Type\ResultInterface;
+use Phpro\SoapClient\Type\ResultProviderInterface;
+
+class GetMessageContentResponse implements ResultInterface, ResultProviderInterface
 {
 
     /**
      * @var string
      */
     private $GetMessageContentResult;
+
+    /**
+     * @return string|ResultInterface
+     */
+    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
+    {
+        return $this->GetMessageContentResult;
+    }
 
     /**
      * @return string

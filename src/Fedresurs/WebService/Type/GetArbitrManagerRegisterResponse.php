@@ -2,13 +2,25 @@
 
 namespace Fedresurs\WebService\Type;
 
-class GetArbitrManagerRegisterResponse
+
+use Phpro\SoapClient\Type\ResultInterface;
+use Phpro\SoapClient\Type\ResultProviderInterface;
+
+class GetArbitrManagerRegisterResponse implements ResultInterface, ResultProviderInterface
 {
 
     /**
      * @var \Fedresurs\WebService\Type\AMList
      */
     private $GetArbitrManagerRegisterResult;
+
+    /**
+     * @return \Fedresurs\WebService\Type\AMList|ResultInterface
+     */
+    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
+    {
+        return $this->GetArbitrManagerRegisterResult;
+    }
 
     /**
      * @return \Fedresurs\WebService\Type\AMList

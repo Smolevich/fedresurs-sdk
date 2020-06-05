@@ -2,13 +2,25 @@
 
 namespace Fedresurs\WebService\Type;
 
-class GetDebtorsByLastPublicationPeriodResponse
+
+use Phpro\SoapClient\Type\ResultInterface;
+use Phpro\SoapClient\Type\ResultProviderInterface;
+
+class GetDebtorsByLastPublicationPeriodResponse implements ResultProviderInterface
 {
 
     /**
      * @var \Fedresurs\WebService\Type\DebtorList
      */
     private $GetDebtorsByLastPublicationPeriodResult;
+
+    /**
+     * @return \Fedresurs\WebService\Type\DebtorList|ResultInterface
+     */
+    public function getResult() : ResultInterface
+    {
+        return $this->GetDebtorsByLastPublicationPeriodResult;
+    }
 
     /**
      * @return \Fedresurs\WebService\Type\DebtorList
@@ -32,4 +44,3 @@ class GetDebtorsByLastPublicationPeriodResponse
 
 
 }
-

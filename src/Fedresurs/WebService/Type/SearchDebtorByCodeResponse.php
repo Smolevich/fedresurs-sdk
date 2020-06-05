@@ -2,13 +2,25 @@
 
 namespace Fedresurs\WebService\Type;
 
-class SearchDebtorByCodeResponse
+
+use Phpro\SoapClient\Type\ResultInterface;
+use Phpro\SoapClient\Type\ResultProviderInterface;
+
+class SearchDebtorByCodeResponse implements ResultInterface, ResultProviderInterface
 {
 
     /**
      * @var \Fedresurs\WebService\Type\DebtorList
      */
     private $SearchDebtorByCodeResult;
+
+    /**
+     * @return \Fedresurs\WebService\Type\DebtorList|ResultInterface
+     */
+    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
+    {
+        return $this->SearchDebtorByCodeResult;
+    }
 
     /**
      * @return \Fedresurs\WebService\Type\DebtorList

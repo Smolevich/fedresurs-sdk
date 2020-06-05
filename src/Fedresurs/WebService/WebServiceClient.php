@@ -3,6 +3,7 @@
 namespace Fedresurs\WebService;
 
 use Fedresurs\WebService\Type;
+use Fedresurs\WebService\Type\DebtorList;
 use Phpro\SoapClient\Type\RequestInterface;
 use Phpro\SoapClient\Type\ResultInterface;
 use Phpro\SoapClient\Exception\SoapException;
@@ -115,7 +116,7 @@ class WebServiceClient extends \Phpro\SoapClient\Client
      * @return ResultInterface|Type\GetDebtorsByLastPublicationPeriodResponse
      * @throws SoapException
      */
-    public function getDebtorsByLastPublicationPeriod(\Fedresurs\WebService\Type\GetDebtorsByLastPublicationPeriod $parameters) : \Fedresurs\WebService\Type\GetDebtorsByLastPublicationPeriodResponse
+    public function getDebtorsByLastPublicationPeriod(\Fedresurs\WebService\Type\GetDebtorsByLastPublicationPeriod $parameters) : DebtorList
     {
         return $this->call('GetDebtorsByLastPublicationPeriod', $parameters);
     }
@@ -152,4 +153,3 @@ class WebServiceClient extends \Phpro\SoapClient\Client
 
 
 }
-

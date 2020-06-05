@@ -2,7 +2,9 @@
 
 namespace Fedresurs\WebService\Type;
 
-class DebtorList
+use Phpro\SoapClient\Type\ResultInterface;
+
+class DebtorList implements ResultInterface
 {
 
     /**
@@ -32,4 +34,3 @@ class DebtorList
 
 
 }
-

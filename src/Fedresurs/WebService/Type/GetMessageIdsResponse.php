@@ -2,13 +2,25 @@
 
 namespace Fedresurs\WebService\Type;
 
-class GetMessageIdsResponse
+
+use Phpro\SoapClient\Type\ResultInterface;
+use Phpro\SoapClient\Type\ResultProviderInterface;
+
+class GetMessageIdsResponse implements ResultInterface, ResultProviderInterface
 {
 
     /**
      * @var \Fedresurs\WebService\Type\ArrayOfInt
      */
     private $GetMessageIdsResult;
+
+    /**
+     * @return \Fedresurs\WebService\Type\ArrayOfInt|ResultInterface
+     */
+    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
+    {
+        return $this->GetMessageIdsResult;
+    }
 
     /**
      * @return \Fedresurs\WebService\Type\ArrayOfInt

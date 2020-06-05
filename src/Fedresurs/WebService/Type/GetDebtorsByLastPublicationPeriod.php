@@ -2,7 +2,11 @@
 
 namespace Fedresurs\WebService\Type;
 
-class GetDebtorsByLastPublicationPeriod
+
+use \DateTime;
+use Phpro\SoapClient\Type\RequestInterface;
+
+class GetDebtorsByLastPublicationPeriod implements RequestInterface
 {
 
     /**
@@ -14,6 +18,12 @@ class GetDebtorsByLastPublicationPeriod
      * @var \DateTimeInterface
      */
     private $endDate;
+
+    public function __construct(\DateTime $startDate, \DateTime $endDate)
+    {
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
+    }
 
     /**
      * @return \DateTimeInterface

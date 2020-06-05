@@ -21,4 +21,8 @@ return Config::create()
     ->setClassMapNamespace('Fedresurs\\WebService')
     ->addRule(new Rules\AssembleRule(new Assembler\GetterAssembler(new Assembler\GetterAssemblerOptions())))
     ->addRule(new Rules\AssembleRule(new Assembler\ImmutableSetterAssembler()))
+    ->addRule(new Rules\TypenameMatchesRule(
+        new Rules\AssembleRule(new Assembler\ResultProviderAssembler()),
+        '/Response$/'
+    ))
 ;

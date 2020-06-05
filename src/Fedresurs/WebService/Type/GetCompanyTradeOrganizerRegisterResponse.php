@@ -2,13 +2,25 @@
 
 namespace Fedresurs\WebService\Type;
 
-class GetCompanyTradeOrganizerRegisterResponse
+
+use Phpro\SoapClient\Type\ResultInterface;
+use Phpro\SoapClient\Type\ResultProviderInterface;
+
+class GetCompanyTradeOrganizerRegisterResponse implements ResultInterface, ResultProviderInterface
 {
 
     /**
      * @var \Fedresurs\WebService\Type\TradeOrganizerList
      */
     private $GetCompanyTradeOrganizerRegisterResult;
+
+    /**
+     * @return \Fedresurs\WebService\Type\TradeOrganizerList|ResultInterface
+     */
+    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
+    {
+        return $this->GetCompanyTradeOrganizerRegisterResult;
+    }
 
     /**
      * @return \Fedresurs\WebService\Type\TradeOrganizerList

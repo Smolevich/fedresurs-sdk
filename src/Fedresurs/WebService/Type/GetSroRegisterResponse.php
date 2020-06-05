@@ -2,13 +2,25 @@
 
 namespace Fedresurs\WebService\Type;
 
-class GetSroRegisterResponse
+
+use Phpro\SoapClient\Type\ResultInterface;
+use Phpro\SoapClient\Type\ResultProviderInterface;
+
+class GetSroRegisterResponse implements ResultInterface, ResultProviderInterface
 {
 
     /**
      * @var \Fedresurs\WebService\Type\SROList
      */
     private $GetSroRegisterResult;
+
+    /**
+     * @return \Fedresurs\WebService\Type\SROList|ResultInterface
+     */
+    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
+    {
+        return $this->GetSroRegisterResult;
+    }
 
     /**
      * @return \Fedresurs\WebService\Type\SROList

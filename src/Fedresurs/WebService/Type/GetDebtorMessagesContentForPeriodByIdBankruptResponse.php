@@ -2,13 +2,25 @@
 
 namespace Fedresurs\WebService\Type;
 
-class GetDebtorMessagesContentForPeriodByIdBankruptResponse
+
+use Phpro\SoapClient\Type\ResultInterface;
+use Phpro\SoapClient\Type\ResultProviderInterface;
+
+class GetDebtorMessagesContentForPeriodByIdBankruptResponse implements ResultInterface, ResultProviderInterface
 {
 
     /**
      * @var string
      */
     private $GetDebtorMessagesContentForPeriodByIdBankruptResult;
+
+    /**
+     * @return string|ResultInterface
+     */
+    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
+    {
+        return $this->GetDebtorMessagesContentForPeriodByIdBankruptResult;
+    }
 
     /**
      * @return string
