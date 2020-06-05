@@ -1,5 +1,12 @@
 {
     "name": "smolevich/fedresurs-sdk",
+    "description": "SDK client for WSDL API fedresurs.ru",
+    "authors": [
+        {
+            "name": "Smolevich",
+            "email": "smolevich90@gmail.com"
+        }
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.2",
