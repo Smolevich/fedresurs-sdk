@@ -6,7 +6,7 @@ namespace Fedresurs\WebService\Type;
 use Phpro\SoapClient\Type\ResultInterface;
 use Phpro\SoapClient\Type\ResultProviderInterface;
 
-class GetTradeMessageContentResponse implements ResultInterface, ResultProviderInterface
+class GetTradeMessageContentResponse implements ResultInterface
 {
 
     /**
@@ -17,7 +17,7 @@ class GetTradeMessageContentResponse implements ResultInterface, ResultProviderI
     /**
      * @return string|ResultInterface
      */
-    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
+    public function getResult()
     {
         return $this->GetTradeMessageContentResult;
     }

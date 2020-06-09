@@ -2,13 +2,20 @@
 
 namespace Fedresurs\WebService\Type;
 
-class GetTradeMessageContent
+use Phpro\SoapClient\Type\RequestInterface;
+
+class GetTradeMessageContent implements RequestInterface
 {
 
     /**
      * @var int
      */
     private $idTradeMessage;
+
+    public function __construct(int $idTradeMessage)
+    {
+        $this->idTradeMessage = $idTradeMessage;
+    }
 
     /**
      * @return int

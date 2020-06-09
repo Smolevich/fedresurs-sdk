@@ -7,6 +7,7 @@ use Fedresurs\WebService\Type\GetTradeMessages;
 use Http\Adapter\Guzzle6\Client;
 use Phpro\SoapClient\Soap\Handler\HttPlugHandle;
 use Fedresurs\WebService\WebServiceClientFactory;
+use \Fedresurs\WebService\Type\GetTradeMessageContent;
 
 $config = json_decode(file_get_contents(__DIR__ . '/../config/credentials.json'), true);
 
@@ -48,7 +49,7 @@ $tradePlaces = $response->getTradePlace();
  * @var \Fedresurs\WebService\Type\TradePlace $tradePlace
  */
 foreach ($tradePlaces as $tradePlace) {
-    echo sprintf('Trade name %s, site %s', $tradePlace->getName(), $tradePlace->getSite()).PHP_EOL;
+    echo sprintf('Trade_place name %s, site %s', $tradePlace->getName(), $tradePlace->getSite()).PHP_EOL;
     $trades = $tradePlace->getTradeList()->getTrade();
     /**
      * @var \Fedresurs\WebService\Type\Trade $trade
@@ -67,6 +68,13 @@ foreach ($tradePlaces as $tradePlace) {
                 $message->getID(),
                 $trade->getID_EFRSB()
             ).PHP_EOL;
+            try {
+                $tradeContent = $client->getTradeMessageContent(new GetTradeMessageContent($message->getID()));
+                file_put_contents(sprintf('trade_message_content_%s.txt', $message->getID()), $tradeContent->getResult());
+                exit;
+            } catch (Exception $e) {
+                echo $e->getMessage().PHP_EOL;
+            }
         }
     }
 
