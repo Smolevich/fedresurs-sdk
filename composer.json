@@ -16,5 +16,13 @@
         "php-http/guzzle6-adapter": "^2.0",
         "php-http/message-factory": "^1.0",
         "phpro/soap-client": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src"
+        }
+    },
+    "require-dev": {
+        "laminas/laminas-code": "^3.1.0"
     }
 }
