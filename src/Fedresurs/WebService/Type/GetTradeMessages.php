@@ -2,6 +2,7 @@
 
 namespace Fedresurs\WebService\Type;
 
+
 use DateTimeInterface;
 use Phpro\SoapClient\Type\RequestInterface;
 
@@ -18,7 +19,7 @@ class GetTradeMessages implements RequestInterface
      */
     private $endTo;
 
-    public function __construct(DateTimeInterface $startFrom, DateTimeInterface $endTo)
+    public function __construct(\DateTimeInterface $startFrom, \DateTimeInterface $endTo)
     {
         $this->startFrom = $startFrom;
         $this->endTo = $endTo;
@@ -66,3 +67,4 @@ class GetTradeMessages implements RequestInterface
 
 
 }
+

@@ -2,7 +2,7 @@
 
 namespace Fedresurs\WebService\Type;
 
-class DebtorCompany extends DebtorRegisterItem
+class DebtorCompany extends \Fedresurs\WebService\Type\DebtorRegisterItem
 {
 
     /**
@@ -107,3 +107,4 @@ class DebtorCompany extends DebtorRegisterItem
 
 
 }
+

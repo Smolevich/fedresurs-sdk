@@ -51,6 +51,11 @@ class DebtorRegisterItem
     protected $BankruptId;
 
     /**
+     * @var string
+     */
+    private $Guid;
+
+    /**
      * @return \DateTimeInterface
      */
     public function getLastMessageDate()
@@ -230,5 +235,26 @@ class DebtorRegisterItem
         return $new;
     }
 
+    /**
+     * @return string
+     */
+    public function getGuid()
+    {
+        return $this->Guid;
+    }
+
+    /**
+     * @param string $Guid
+     * @return DebtorRegisterItem
+     */
+    public function withGuid($Guid)
+    {
+        $new = clone $this;
+        $new->Guid = $Guid;
+
+        return $new;
+    }
+
 
 }
+

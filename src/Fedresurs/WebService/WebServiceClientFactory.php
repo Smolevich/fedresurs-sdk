@@ -2,8 +2,6 @@
 
 namespace Fedresurs\WebService;
 
-use Fedresurs\WebService\WebServiceClient;
-use Fedresurs\WebService\WebServiceClassmap;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Phpro\SoapClient\Soap\Driver\ExtSoap\ExtSoapEngineFactory;
 use Phpro\SoapClient\Soap\Driver\ExtSoap\ExtSoapOptions;

@@ -17,7 +17,7 @@ class GetDebtorsByLastPublicationPeriodResponse implements ResultProviderInterfa
     /**
      * @return \Fedresurs\WebService\Type\DebtorList|ResultInterface
      */
-    public function getResult() : ResultInterface
+    public function getResult() : \Phpro\SoapClient\Type\ResultInterface
     {
         return $this->GetDebtorsByLastPublicationPeriodResult;
     }
@@ -44,3 +44,4 @@ class GetDebtorsByLastPublicationPeriodResponse implements ResultProviderInterfa
 
 
 }
+

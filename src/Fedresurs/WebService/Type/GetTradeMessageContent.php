@@ -2,6 +2,7 @@
 
 namespace Fedresurs\WebService\Type;
 
+
 use Phpro\SoapClient\Type\RequestInterface;
 
 class GetTradeMessageContent implements RequestInterface
